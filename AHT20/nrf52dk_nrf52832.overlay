@@ -1,0 +1,17 @@
+/* Define the I2C bus.
+ * Note: Change i2c0 to i2c1 if your specific nRF board uses I2C1 for its external pins! */
+&i2c0 {
+    compatible = "nordic,nrf-twim"; // Ensure this matches the I2C peripheral on your Nordic SoC
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+
+
+    /* Define the AHT20 sensor node */
+    aht20_sensor: aht20@38 {
+        compatible = "aosong,aht20";
+        reg = <0x38>; /* The I2C address of the AHT20 */
+        status = "okay";
+         label = "AHT20";
+    };
+};
+
